@@ -31,14 +31,9 @@ struct PopUpViewModifier: ViewModifier {
                 }
 
             content
-                .padding(settings.contentPadding)
-                .background(
-                    RoundedRectangle(cornerRadius: settings.contentBackgroundCornerRadius)
-                        .foregroundColor(settings.contentBackgroundColor)
-                )
                 .scaleEffect(x: transitionProgress, y: transitionProgress)
                 .opacity(transitionProgress)
-                .animation(isPresenting ? settings.showUpAnimation : settings.dismissAnimation, value: transitionProgress)
+                .animation(isPresenting ? settings.presentAnimation : settings.dismissAnimation, value: transitionProgress)
                 .zIndex(1)
         }
     }
