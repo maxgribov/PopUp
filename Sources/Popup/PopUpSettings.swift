@@ -47,6 +47,16 @@ public extension PopUpSettings {
         dismissAnimation: .defaultPopUpDismiss,
         isDismissOnBackgroundTapEnabled: true
     )
+    
+    static let clear = PopUpSettings(
+        backgroundMaterial: .regular,
+        contentPadding: 0,
+        contentBackgroundCornerRadius: 0,
+        contentBackgroundColor: .clear,
+        showUpAnimation: .defaultPopUpShow,
+        dismissAnimation: .defaultPopUpDismiss,
+        isDismissOnBackgroundTapEnabled: true
+    )
 }
 
 public extension Animation {
