@@ -10,6 +10,7 @@ import SwiftUI
 struct PopUpViewModifier: ViewModifier {
     
     @Environment(\.popUpBackgroundMaterial) var backgroundMaterial
+    @Environment(\.popUpPresentAnimation) var presentAnimation
 
     var transitionProgress: Double
     var isPresenting: Bool
@@ -35,7 +36,7 @@ struct PopUpViewModifier: ViewModifier {
             content
                 .scaleEffect(x: transitionProgress, y: transitionProgress)
                 .opacity(transitionProgress)
-                .animation(isPresenting ? settings.presentAnimation : settings.dismissAnimation, value: transitionProgress)
+                .animation(isPresenting ? presentAnimation : settings.dismissAnimation, value: transitionProgress)
                 .zIndex(1)
         }
     }
