@@ -25,4 +25,21 @@ public extension View {
             )
         )
     }
+    
+    func popup<Content>(
+        isPresented: Binding<Bool>,
+        onDismiss: (() -> Void)? = nil,
+        settings: PopUpSettings = .default,
+        @ViewBuilder content: @escaping () -> Content
+    ) -> some View where Content : View {
+        
+        modifier(
+            PopUpBasic(
+                isPresented: isPresented,
+                makeItemView: content,
+                onDismiss: onDismiss,
+                settings: settings
+            )
+        )
+    }
 }

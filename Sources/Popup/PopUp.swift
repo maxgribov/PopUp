@@ -34,3 +34,30 @@ struct PopUp<Item, ItemView>: ViewModifier where Item : Identifiable, ItemView :
         }
     }
 }
+
+struct PopUpBasic<ItemView>: ViewModifier where ItemView : View {
+    
+    @Binding var isPresented: Bool
+    @ViewBuilder let makeItemView: () -> ItemView
+    let onDismiss: (() -> Void)?
+    let settings: PopUpSettings
+    
+    func body(content: Content) -> some View {
+        
+        ZStack {
+            
+            content
+                .zIndex(0)
+            
+            if isPresented {
+                
+                makeItemView()
+                    .transition(.popup(dismiss: { self.isPresented = false }, settings: settings))
+                    .zIndex(1)
+                    .onDisappear {
+                        onDismiss?()
+                    }
+            }
+        }
+    }
+}
