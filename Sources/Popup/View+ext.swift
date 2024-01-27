@@ -12,7 +12,7 @@ public extension View {
     func popup<Item, Content>(
         item: Binding<Item?>,
         onDismiss: (() -> Void)? = nil,
-        settings: PopUpSettings = .init(),
+        settings: PopUpSettings = .default,
         @ViewBuilder content: @escaping (Item) -> Content
     ) -> some View where Item : Identifiable, Content : View {
         
