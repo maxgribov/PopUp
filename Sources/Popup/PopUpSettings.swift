@@ -15,6 +15,7 @@ public struct PopUpSettings {
     let contentBackgroundColor: Color
     let showUpAnimation: Animation
     let dismissAnimation: Animation
+    let isDismissOnBackgroundTapEnabled: Bool
     
     public init(
         backgroundMaterial: Material = .regularMaterial,
@@ -22,7 +23,8 @@ public struct PopUpSettings {
         contentBackgroundCornerRadius: CGFloat = 30,
         contentBackgroundColor: Color = .white,
         showUpAnimation: Animation = .interactiveSpring(response: 0.5, dampingFraction: 0.5, blendDuration: 0.25),
-        dismissAnimation: Animation = .easeOut(duration: 0.3)
+        dismissAnimation: Animation = .easeOut(duration: 0.3),
+        isDismissOnBackgroundTapEnabled: Bool = true
     ) {
         self.backgroundMaterial = backgroundMaterial
         self.contentPadding = contentPadding
@@ -30,5 +32,6 @@ public struct PopUpSettings {
         self.contentBackgroundColor = contentBackgroundColor
         self.showUpAnimation = showUpAnimation
         self.dismissAnimation = dismissAnimation
+        self.isDismissOnBackgroundTapEnabled = isDismissOnBackgroundTapEnabled
     }
 }

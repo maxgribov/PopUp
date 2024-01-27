@@ -25,7 +25,9 @@ struct PopUpViewModifier: ViewModifier {
                 .ignoresSafeArea()
                 .zIndex(0)
                 .onTapGesture {
-                    dismiss()
+                    if settings.isDismissOnBackgroundTapEnabled {
+                        dismiss()
+                    }
                 }
 
             content
