@@ -9,7 +9,7 @@ import SwiftUI
 
 public extension View {
     
-    func popup<Item, Content>(
+    func popUp<Item, Content>(
         item: Binding<Item?>,
         onDismiss: (() -> Void)? = nil,
         settings: PopUpSettings = .default,
@@ -26,7 +26,7 @@ public extension View {
         )
     }
     
-    func popup<Content>(
+    func popUp<Content>(
         isPresented: Binding<Bool>,
         onDismiss: (() -> Void)? = nil,
         settings: PopUpSettings = .default,
