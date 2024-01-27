@@ -43,8 +43,14 @@ public extension PopUpSettings {
         contentPadding: 40,
         contentBackgroundCornerRadius: 30,
         contentBackgroundColor: .white,
-        showUpAnimation: .interactiveSpring(response: 0.5, dampingFraction: 0.5, blendDuration: 0.25),
-        dismissAnimation: .easeOut(duration: 0.3),
+        showUpAnimation: .defaultPopUpShow,
+        dismissAnimation: .defaultPopUpDismiss,
         isDismissOnBackgroundTapEnabled: true
     )
+}
+
+public extension Animation {
+    
+    static let defaultPopUpShow: Animation = .interactiveSpring(response: 0.5, dampingFraction: 0.5, blendDuration: 0.25)
+    static let defaultPopUpDismiss: Animation = .easeOut(duration: 0.3)
 }
