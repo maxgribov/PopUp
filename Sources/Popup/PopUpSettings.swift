@@ -9,18 +9,15 @@ import SwiftUI
 
 public struct PopUpSettings {
     
-    let backgroundMaterial: Material
     let presentAnimation: Animation
     let dismissAnimation: Animation
     let isDismissOnBackgroundTapEnabled: Bool
     
     public init(
-        backgroundMaterial: Material,
         presentAnimation: Animation,
         dismissAnimation: Animation,
         isDismissOnBackgroundTapEnabled: Bool
     ) {
-        self.backgroundMaterial = backgroundMaterial
         self.presentAnimation = presentAnimation
         self.dismissAnimation = dismissAnimation
         self.isDismissOnBackgroundTapEnabled = isDismissOnBackgroundTapEnabled
@@ -30,7 +27,6 @@ public struct PopUpSettings {
 public extension PopUpSettings {
     
     static let `default` = PopUpSettings(
-        backgroundMaterial: .regular,
         presentAnimation: .defaultPopUpPresent,
         dismissAnimation: .defaultPopUpDismiss,
         isDismissOnBackgroundTapEnabled: true

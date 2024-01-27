@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct PopUpViewModifier: ViewModifier {
+    
+    @Environment(\.popUpBackgroundMaterial) var backgroundMaterial
 
     var transitionProgress: Double
     var isPresenting: Bool
@@ -19,7 +21,7 @@ struct PopUpViewModifier: ViewModifier {
         ZStack {
             
             Color.clear
-                .background(settings.backgroundMaterial)
+                .background(backgroundMaterial)
                 .opacity(transitionProgress)
                 .animation(.easeInOut, value: transitionProgress)
                 .ignoresSafeArea()
@@ -59,3 +61,4 @@ extension AnyTransition {
         )
     }
 }
+
