@@ -12,11 +12,11 @@ struct PopUpViewModifier: ViewModifier {
     @Environment(\.popUpBackgroundMaterial) var backgroundMaterial
     @Environment(\.popUpPresentAnimation) var presentAnimation
     @Environment(\.popUpDismissAnimation) var dismissAnimation
+    @Environment(\.popUpDismissOnBackgroundTap) var isDismissOnBackgroundTapEnabled
 
     var transitionProgress: Double
     var isPresenting: Bool
     let dismiss: () -> Void
-    var settings: PopUpSettings
     
     func body(content: Content) -> some View {
         
@@ -29,7 +29,7 @@ struct PopUpViewModifier: ViewModifier {
                 .ignoresSafeArea()
                 .zIndex(0)
                 .onTapGesture {
-                    if settings.isDismissOnBackgroundTapEnabled {
+                    if isDismissOnBackgroundTapEnabled {
                         dismiss()
                     }
                 }
@@ -45,20 +45,18 @@ struct PopUpViewModifier: ViewModifier {
 
 extension AnyTransition {
  
-    static func popup(dismiss: @escaping () -> Void, settings: PopUpSettings) -> AnyTransition {
+    static func popup(dismiss: @escaping () -> Void) -> AnyTransition {
         
         .modifier(
             active: PopUpViewModifier(
                 transitionProgress: 0,
                 isPresenting: false,
-                dismiss: dismiss,
-                settings: settings
+                dismiss: dismiss
             ),
             identity: PopUpViewModifier(
                 transitionProgress: 1,
                 isPresenting: true,
-                dismiss: dismiss,
-                settings: settings
+                dismiss: dismiss
             )
         )
     }

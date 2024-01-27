@@ -13,7 +13,6 @@ struct PopUp<Item, ItemView>: ViewModifier where Item : Identifiable, ItemView :
     @Binding var item: Item?
     @ViewBuilder let makeItemView: (Item) -> ItemView
     let onDismiss: (() -> Void)?
-    let settings: PopUpSettings
     
     func body(content: Content) -> some View {
         
@@ -25,7 +24,7 @@ struct PopUp<Item, ItemView>: ViewModifier where Item : Identifiable, ItemView :
             if let item = item {
                 
                 makeItemView(item)
-                    .transition(.popup(dismiss: { self.item = nil }, settings: settings))
+                    .transition(.popup(dismiss: { self.item = nil }))
                     .zIndex(1)
                     .onDisappear {
                         onDismiss?()
@@ -40,7 +39,6 @@ struct PopUpBasic<ItemView>: ViewModifier where ItemView : View {
     @Binding var isPresented: Bool
     @ViewBuilder let makeItemView: () -> ItemView
     let onDismiss: (() -> Void)?
-    let settings: PopUpSettings
     
     func body(content: Content) -> some View {
         
@@ -52,7 +50,7 @@ struct PopUpBasic<ItemView>: ViewModifier where ItemView : View {
             if isPresented {
                 
                 makeItemView()
-                    .transition(.popup(dismiss: { self.isPresented = false }, settings: settings))
+                    .transition(.popup(dismiss: { self.isPresented = false }))
                     .zIndex(1)
                     .onDisappear {
                         onDismiss?()

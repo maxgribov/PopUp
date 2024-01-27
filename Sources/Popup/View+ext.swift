@@ -12,7 +12,6 @@ public extension View {
     func popUp<Item, Content>(
         item: Binding<Item?>,
         onDismiss: (() -> Void)? = nil,
-        settings: PopUpSettings = .default,
         @ViewBuilder content: @escaping (Item) -> Content
     ) -> some View where Item : Identifiable, Content : View {
         
@@ -20,8 +19,7 @@ public extension View {
             PopUp(
                 item: item,
                 makeItemView: content,
-                onDismiss: onDismiss,
-                settings: settings
+                onDismiss: onDismiss
             )
         )
     }
@@ -29,7 +27,6 @@ public extension View {
     func popUp<Content>(
         isPresented: Binding<Bool>,
         onDismiss: (() -> Void)? = nil,
-        settings: PopUpSettings = .default,
         @ViewBuilder content: @escaping () -> Content
     ) -> some View where Content : View {
         
@@ -37,8 +34,7 @@ public extension View {
             PopUpBasic(
                 isPresented: isPresented,
                 makeItemView: content,
-                onDismiss: onDismiss,
-                settings: settings
+                onDismiss: onDismiss
             )
         )
     }
