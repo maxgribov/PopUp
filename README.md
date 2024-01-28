@@ -14,7 +14,7 @@ For how-to integrate package dependencies refer to [Adding Package Dependencies 
 
 ### Show
 
-You can easily present a pop up with `View` modifier `popUp`. This is very similar how to present a sheet:
+You can easily present a pop up with `View` modifier [popUp](Sources/Popup/View%2Bext.swift#L76). This is very similar how to present a sheet:
 
  ```swift
  struct CustomAlertModel: Identifiable {
@@ -58,10 +58,10 @@ You can easily present a pop up with `View` modifier `popUp`. This is very simil
 ### Customise
 
 There are few methods that you can use to customise look and behaviour of the pop up:
-- `popUpBackgroundMaterial`: updates material for the dim view under the pop up view.
-- `popUpPresentAnimation`: replaces the animation for the pop up show up.
-- `popUpDismissAnimation`: replaces the animation for the pop up dismiss.
-- `popUpDismissOnBackgroundTap`: enables or disables the pop up dismissal on user tap at the dim view outside of the pop up view.
+- [popUpBackgroundMaterial](Sources/Popup/Settings/BackgroundMaterial.swift#L35): updates material for the dim view under the pop up view.
+- [popUpPresentAnimation](Sources/Popup/Settings/PresentAnimation.swift#L34): replaces the animation for the pop up show up.
+- [popUpDismissAnimation](Sources/Popup/Settings/DismissAnimation.swift#L34): replaces the animation for the pop up dismiss.
+- [popUpDismissOnBackgroundTap](Sources/Popup/Settings/DismissOnBackgroundTap.swift#L34): enables or disables the pop up dismissal on user tap at the dim view outside of the pop up view.
 
 #### Example:
  ```swift
