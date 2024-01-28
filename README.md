@@ -1,6 +1,7 @@
 # PopUp
-This is simple SwiftUI pop up view implementation. 
-![Hero](img/example.gif)
+SwiftUI simple pop up view implementation:
+ 
+<img src="img/example.gif" alt="drawing" width="300"/>
 
 ## Installing
 PopUp Library can be installed using Swift Package Manager.
