@@ -38,9 +38,6 @@ public extension View {
              .popUp(item: $customAlert) { viewModel in
                  CustomAlert(viewModel: viewModel)
              }
-             .sheet(item: $customAlert) { _ in
-                 EmptyView()
-             }
          }
      }
 
