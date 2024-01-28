@@ -79,6 +79,14 @@ There are few methods that you can use to customise look and behaviour of the po
      }
  }
  ```
+ 
+## Notes
+
+> PopUp does not have any background or a style for the content (like the system alert view is for example). The look of your popup you have implement by yourself.
+
+> This is not a modal view (like a sheet for example). It can not cover views above it.
+
+> It is possible to open many pop ups one above other. There is no limitations like for the sheet.
 
 ## System Requirements
 
